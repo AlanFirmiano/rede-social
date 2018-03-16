@@ -18,8 +18,10 @@ export class TimelineComponent implements OnInit {
   
   contadorLikes(post:Post){
     post.qtdLikes += 1;
+    
     this.recebeuLike(post);
   }
+
   recebeuLike(dado){
     console.log(dado);
   }
