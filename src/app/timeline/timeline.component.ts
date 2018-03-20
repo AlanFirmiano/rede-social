@@ -8,22 +8,19 @@ import { Post } from '../_models/post';
 })
 export class TimelineComponent implements OnInit {
   
+  posts = [
+    new Post(1,"Leo","asndaskjn ajsdhakjda",5),
+    new Post(2,"Davi","asndaskjn ajsdhakjda",8),
+    new Post(3,"Marcos","asndaskjn ajsdhakjda",2),
+    new Post(4,"João","asndaskjn ajsdhakjda",13),
+    new Post(5,"Alan","asndaskjn ajsdhakjda",23)
+  ];
   
-  @Input() posts: Post[] ;
 
   constructor() { }
 
   ngOnInit() {
   }
   
-  contadorLikes(post:Post){
-    post.qtdLikes += 1;
-    
-    this.recebeuLike(post);
-  }
-
-  recebeuLike(dado){
-    console.log(dado);
-  }
   
 }
