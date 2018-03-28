@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TimelineComponent } from './timeline/timeline.component';
-import { PostComponent } from './panel/panel.component';
+import { routing } from './app.routing';
+import { ListarComponent } from './panel/listar/listar.component';
+import { CadastrarComponent } from './panel/cadastrar/cadastrar.component';
+import { AppService } from './app.service';
 
 
 @NgModule({
@@ -13,12 +16,15 @@ import { PostComponent } from './panel/panel.component';
     AppComponent,
     NavbarComponent,
     TimelineComponent,
-    PostComponent
+    ListarComponent,
+    CadastrarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    routing
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

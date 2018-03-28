@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Post } from './_models/post';
+import { Router } from '@angular/router';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +10,8 @@ import { Post } from './_models/post';
 })
 export class AppComponent {
   
-  posts = [
-    new Post(1,"Leo","asndaskjn ajsdhakjda",5),
-    new Post(2,"Davi","asndaskjn ajsdhakjda",8),
-    new Post(3,"Marcos","asndaskjn ajsdhakjda",2),
-    new Post(4,"João","asndaskjn ajsdhakjda",13),
-    new Post(5,"Alan","asndaskjn ajsdhakjda",23)
-  ];
- 
-  
   title = 'app';
+  constructor(private service:AppService, private router:Router){
+
+  }
 }

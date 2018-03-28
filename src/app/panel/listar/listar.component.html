@@ -1,0 +1,15 @@
+<div *ngFor="let post of posts" class="panel panel-default ">
+  <div class="panel-heading teal">
+    <img src="../../../assets/user.png" class="img img-circle"><span class="panel-title"> {{post.nomePessoa}}</span>
+  </div>
+  <div class="panel-body myText">
+    {{post.texto}}
+  </div>
+  <div class="panel-footer">
+    <button (click)="recebeuLike(post)" type="button" class="btn btn-default">
+      <span class="glyphicon glyphicon-thumbs-up like" aria-hidden="true"></span> {{post.qtdLikes}}
+    </button>
+    <button (click)="removePost(post)" type="button" class="btn btn-default">
+      <span class="glyphicon glyphicon-remove remove" aria-hidden="true"></span></button>
+  </div>
+</div>

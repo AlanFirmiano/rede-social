@@ -1,0 +1,23 @@
+.teal{
+    color: white;
+    background-color: rgb(0,128,129);
+}
+a {
+    color: white;
+}
+ul li a{
+    color:white;
+}
+.active{
+    color:white;
+    background-color: rgb(1, 87, 87);
+}
+ul li a .active{
+    color:white;
+    background-color: rgb(1, 87, 87);
+}
+
+ul li a:hover{
+    color:white;
+    background-color: rgb(1, 87, 87);
+}
