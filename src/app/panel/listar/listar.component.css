@@ -14,11 +14,14 @@
 .remove{
     color:red;
 }
+
 .teal{
     color: white;
     background-color: rgb(0,128,129);
 }
-
+.data{
+    color: rgb(89, 174, 243);
+}
 .img{
     max-width:30px;
     max-height:30px;
