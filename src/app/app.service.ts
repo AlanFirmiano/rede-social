@@ -1,34 +1,56 @@
 import { Injectable } from '@angular/core';
+import { Http, Response} from '@angular/http';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+
 import { Post } from './_models/post';
 
 @Injectable()
 export class AppService {
-    idVez:number = 5;
-    posts = [
-        new Post(1, "Leo", "asndaskjn ajsdhakjda", 5),
-        new Post(2, "Davi", "asndaskjn ajsdhakjda", 8),
-        new Post(3, "Jorge", "Tô perdido demais mam", 4),
-        new Post(4, "Alan", "Sucesso demais", 3),
-        new Post(5, "João", "Isso é trivial", 6)
-    ];
 
+    constructor(private http:Http){
+
+    }
+    
+    posts:Post[] = [];
+    
+    url:string = "http://rest.learncode.academy/api/alan/post";
     getPosts() {
-        return this.posts;
+        return this.http.get(this.url)
+        .map((res:Response) => {
+            this.posts = [];
+            for(let p of res.json()){
+                this.posts.unshift(new Post(p.id,p.nomePessoa,p.texto,p.qtdLikes));
+            }
+            return this.posts;
+        })
+        .catch((err:Response) =>
+            Observable.throw(err));
     }
     addPost(post: Post) {
-        post.id = ++this.idVez;
-        this.posts.push(post);
+        return this.http.post(this.url,post)
+            .map((res:Response) => res.json())
+            .catch((err:Response) => Observable.throw(err));
     }
 
     recebeuLike(post: Post) {
-        this.posts[this.posts.indexOf(post)].qtdLikes++;
+        post.qtdLikes++;
+        return this.http.put(this.url+'/'+post.id,post)
+            .map((res:Response) => res.text())
+            .catch((err:Response) => Observable.throw(err));
+    }
+    
+    getPorId(id:number){
+        return this.http.get(this.url+'/'+id)
+            .map((res:Response) => res.json())
+            .catch((err:Response) => Observable.throw(err));
     }
     
     removePost(post: Post) {
-        var index = this.posts.indexOf(post, 0);
-        if (index > -1) {
-        this.posts.splice(index, 1);
-    }
+        return this.http.delete(this.url+'/'+post.id)
+            .map((res:Response) => res.text())
+            .catch((err:Response) => Observable.throw(err+"foi aqui"));
     }
 
 }

@@ -8,16 +8,9 @@ a {
 ul li a{
     color:white;
 }
-.active{
-    color:white;
-    background-color: rgb(1, 87, 87);
-}
-ul li a .active{
-    color:white;
-    background-color: rgb(1, 87, 87);
-}
-
-ul li a:hover{
-    color:white;
+.active,
+ul li a .active,
+ul li a:hover,
+ul li a:focus{
     background-color: rgb(1, 87, 87);
 }

@@ -14,10 +14,7 @@ export class TimelineComponent implements OnInit {
   
 
   postar(event){
-    event.preventDefault();
-    this.newPost.emit(
-      new Post(6,"TESTE",this.texto,0)
-    );
+    
   }
   
   constructor() { }
