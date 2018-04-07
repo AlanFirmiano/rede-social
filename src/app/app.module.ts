@@ -10,6 +10,7 @@ import { routing } from './app.routing';
 import { ListarComponent } from './panel/listar/listar.component';
 import { CadastrarComponent } from './panel/cadastrar/cadastrar.component';
 import { AppService } from './app.service';
+import { EditarComponent } from './panel/editar/editar.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AppService } from './app.service';
     NavbarComponent,
     TimelineComponent,
     ListarComponent,
-    CadastrarComponent
+    CadastrarComponent,
+    EditarComponent
   ],
   imports: [
     BrowserModule,

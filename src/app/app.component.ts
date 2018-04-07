@@ -10,7 +10,7 @@ import { AppService } from './app.service';
 })
 export class AppComponent {
   
-  title = 'app';
+  title = 'Facetruck';
   constructor(private service:AppService, private router:Router){
 
   }

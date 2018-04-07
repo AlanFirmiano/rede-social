@@ -10,34 +10,35 @@ import { AppService } from '../../app.service';
 })
 export class CadastrarComponent implements OnInit {
 
-  constructor(private service:AppService,private rota:Router){
+  constructor(private service: AppService, private rota: Router) {
 
   }
 
   id_post: number;
   nomePessoa: string = "";
   texto: string = "";
+  date:string = this.service.newDate();
 
-  
-  ngOnInit(){
+  ngOnInit() {
 
   }
 
-  addPost(event){
-    this.service.addPost(new Post(null,this.nomePessoa,this.texto,0))
-      .subscribe(data=>{
+  addPost(event) {
+    this.service.addPost(new Post(null, this.nomePessoa, this.texto, 0,this.date))
+      .subscribe(data => {
         console.log(data);
-        this.rota.navigate['/post'];
+        this.rota.navigateByUrl("posts");
       },
-    error=>console.log(error));
+        error => console.log(error));
 
     this.limpar();
+    this.rota.navigate['/posts'];
   }
 
-  limpar(){
-    this.id_post=undefined;
-    this.nomePessoa="";
-    this.texto="";
+  limpar() {
+    this.id_post = undefined;
+    this.nomePessoa = "";
+    this.texto = "";
   }
 
 }
